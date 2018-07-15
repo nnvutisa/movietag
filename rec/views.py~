@@ -1,0 +1,25 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import MovieRec
+
+def index(request):
+    return HttpResponse("Hello, world. This is the rec app.")
+
+def movierec(request, movie_id):
+    # Get the list of recommended movies from the database
+    m = MovieRec.objects.get(pk=movie_id)
+    rec_list = [m.rec1, m.rec2, m.rec3, m.rec4, m.rec5,
+                m.rec6, m.rec7, m.rec8, m.rec9, m.rec10]
+
+    template = loader.get_template('rec/index.html')
+    context = {
+        'rec_list' : rec_list,
+        'name' : name,
+        'index_url' : 'index.html',
+        'about_url' : 'about.html',
+    }
+
+    #output  = ','.join(rec_list)
+    return HttpResponse(template.render(context, request))

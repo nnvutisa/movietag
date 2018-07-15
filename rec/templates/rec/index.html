@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Movie Recommendation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" lang="en" content="Movie recommendation">
+		<meta name="author" content="NNVUTISA">
+		<meta name="robots" content="index, follow">
+
+		<!-- Override CSS file - add your own CSS rules -->
+                {% load staticfiles %}
+		<link rel="stylesheet" href="{% static "rec/styles.css" %}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1 class="header-heading">MOVIE TAG</h1>
+			        <h5 class="header-exp">Not sure what movie to watch?
+			        Answer some questions and let me suggests a movie for you.</h5>
+			</div>
+			<div class="content">
+				<div class="left_box">
+					<p> Movies similar to <b>{{ name }} </b></p>
+				</div>
+				<div class="right_box">
+					<ul class="list-circle">
+						{% for movie in rec_list %}
+  							<li>{{ movie }}</li>
+  						{% endfor %}
+					</ul>  
+				</div>
+			</div>
+				
+			<div class="footer">
+				<ul class="nav">
+				        {% url 'about' as about_url %}
+				        {% url 'index' as index_url %}
+				        <li><a href="{{ index_url }}">Home</a></li>
+					<li><a href="{{ about_url }}">About</a></li>
+					<li><a
+				href="https://nnvutisa.wordpress.com/2016/06/10/movie-tag-project/">
+					Blog</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+
+</html>
