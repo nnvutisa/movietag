@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Movie Recommendation</title>
+		<title>About</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Description" lang="en" content="Movie recommendation">
 		<meta name="author" content="NNVUTISA">
@@ -11,7 +11,7 @@
 
 		<!-- Override CSS file - add your own CSS rules -->
                 {% load staticfiles %}
-		<link rel="stylesheet" href="{% static "rec/styles.css" %}">
+		<link rel="stylesheet" href="{% static "tag/styles.css" %}">
 	</head>
 	<body>
 		<div class="container">
@@ -19,17 +19,25 @@
 				<h1 class="header-heading">MOVIE TAG</h1>
 			        <h5 class="header-exp">Not sure what movie to watch?
 			        Answer some questions and let me suggests a movie for you.</h5>
+			  
 			</div>
 			<div class="content">
-				<div class="left_box">
-					<p> Movies similar to <b>{{ name }} </b></p>
-				</div>
-				<div class="right_box">
-					<ul class="list-circle">
-						{% for movie in rec_list %}
-  							<li>{{ movie }}</li>
-  						{% endfor %}
-					</ul>  
+				<div class="main">
+					<center>
+				        <div class="about">
+					    <p>This project made
+				        use of movie tag data from
+			                <a href="http://grouplens.org/datasets/movielens/">
+				        MovieLens Tag Genome
+			                Dataset.</a> The project was inspired by the
+			                idea of movie recommendation based on
+		 	                sentiments. For
+			                those who are interested, you can read more about how this app works on 
+			                <a href="https://nnvutisa.github.io/articles/2016-06/build-a-movie-app">my blog</a>
+			                or check out the code on the movie recommendation app on 
+			                <a href="https://github.com/nnvutisa/movietag">Github</a>.</p>
+					</div>
+				        </center>
 				</div>
 			</div>
 				
@@ -42,8 +50,10 @@
 				</ul>
 			</div>
 		</div>
-
+		<form method="post" action="" id="answer_form">
+		        {% csrf_token %}
+		        <input type="hidden" name="ans" id="hdd" value="">
+		</form>
+		
 	</body>
-
-
 </html>

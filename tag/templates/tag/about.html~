@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>About</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" lang="en" content="Movie recommendation">
+		<meta name="author" content="NNVUTISA">
+		<meta name="robots" content="index, follow">
+
+		<!-- Override CSS file - add your own CSS rules -->
+                {% load staticfiles %}
+		<link rel="stylesheet" href="{% static "styles.css" %}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1 class="header-heading">MOVIE TAG</h1>
+			        <h5 class="header-exp">Not sure what movie to watch?
+			        Answer some questions and let me suggests a movie for you.</h5>
+			  
+			</div>
+			<div class="content">
+				<div class="main">
+					<center>
+				        <div class="about">
+					    <p>This project made
+				        use of tags that users applied to movies from
+			                the <a href="http://grouplens.org/datasets/movielens/">
+				        MovieLens Tag Genome
+			                Dataset.</a> The project was inspired by the
+			                idea of movie recommendation based on
+		 	                sentiments. It is a simple, but a fun start of
+			                possibly a bigger project in the future. For
+			                those who are interested, more details can be
+			                found in the blog post (link below).</p>
+					</div>
+				        </center>
+				</div>
+			</div>
+				
+			<div class="footer">
+				<ul class="nav">
+				        {% url 'about' as about_url %}
+				        {% url 'index' as index_url %}
+				        <li><a href="{{ index_url }}">Home</a></li>
+					<li><a href="{{ about_url }}">About</a></li>
+					<li><a
+				href="https://nnvutisa.wordpress.com/2016/06/10/movie-tag-project/">
+					Blog</a></li>
+				</ul>
+			</div>
+		</div>
+		<form method="post" action="" id="answer_form">
+		        {% csrf_token %}
+		        <input type="hidden" name="ans" id="hdd" value="">
+		</form>
+		
+	</body>
+</html>

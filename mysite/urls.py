@@ -20,4 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^rec/', include('rec.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('tag.urls'))
 ]
