@@ -36,7 +36,7 @@ class UnicodeReader:
 def make_prediction(leaf_node):
     module_dir = os.path.dirname(__file__)
     fp_movie_name = os.path.join(module_dir, 'movie_name.csv')
-    fp_prediction = os.path.join(module_dir, 'prediction.npy')
+    fp_prediction = os.path.join(module_dir, 'prediction_dict.npy')
      
     #read movie name
     with open(fp_movie_name,'r') as myFile:
@@ -45,7 +45,7 @@ def make_prediction(leaf_node):
     movie_name = np.asarray(data[0], dtype = unicode)
 
     #read the prediction array
-    prediction = np.load(fp_prediction)
+    prediction = np.load(fp_prediction).item()
 
     #get the prediction of the leaf node
     y = prediction[leaf_node][0]
