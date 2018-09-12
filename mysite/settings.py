@@ -20,13 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('/mysite/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+#with open('/mysite/secret_key.txt') as f:
+#    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [‘0.0.0.0’, ‘localhost’,
+    'https://movietag.herokuapp.com/',
+]
 
 
 # Application definition
@@ -79,15 +81,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-with open('/mysite/database_password.txt') as f:
-    DB_PASSWORD = f.read().strip()
+#with open('/mysite/database_password.txt') as f:
+#    DB_PASSWORD = f.read().strip()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'movietag',
         'USER': 'user_django',
-        'PASSWORD': DATABASE_PASSWORD,
+        'PASSWORD': 'Decision Tree',
         'HOST': 'localhost',
         'PORT': '5432',
     }
