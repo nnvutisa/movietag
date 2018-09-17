@@ -46,8 +46,11 @@ def make_prediction(leaf_node):
 
     #read the prediction array
     prediction = np.load(fp_prediction).item()
+    print type(prediction)
 
     #get the prediction of the leaf node
+    print "Leaf_node = ", leaf_node
+    print prediction[leaf_node]
     y = prediction[leaf_node][0]
     y_ind = y==1
 
